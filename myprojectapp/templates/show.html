@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <h4 class="text-center alert alert-info">Employee Details</h4>
+        <a class="btn btn-primary" href="/">back to home</a>
+        {% if messages %}
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        {% endif %}
+        <table class="table" border="1">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Employee Full Name</th>
+                <th scope="col">Employee Contact</th>
+                <th scope="col">Employee Email</th>
+                <th scope="col">Employee Address</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.emp_id}}</td>
+                <td>{{ employee.emp_name}}</td>
+                <td>{{ employee.emp_contact}}</td>
+                <td>{{ employee.emp_email}}</td>
+                <td>{{ employee.emp_address}}</td>
+                <td>
+                    <a class="btn btn-primary" href="/edit/{{employee.id}}">Edit</a>
+                    <a class="btn btn-danger" href="/delete/{{employee.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

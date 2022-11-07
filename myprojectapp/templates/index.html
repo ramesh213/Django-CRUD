@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-8 mx-auto">
+        <h4 class="text-center alert alert-info">Add New Employee</h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Add Record">
+            <a class="btn btn-primary" href="/show">Show All Record</a>
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
